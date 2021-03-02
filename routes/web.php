@@ -18,4 +18,7 @@ use App\Http\Controllers\FrontEnd\FrontController;
 //    return view('welcome');
 //});
 
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/login', [FrontController::class, 'login'])->name('login');
+Route::get('/recover-your-password', [FrontController::class, 'recoverPassword'])->name('recoverPassword');
+Route::get('/register', [FrontController::class, 'register'])->name('register');
