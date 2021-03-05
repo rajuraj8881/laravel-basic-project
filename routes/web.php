@@ -14,11 +14,14 @@ use App\Http\Controllers\FrontEnd\FrontController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/dashboard', [FrontController::class, 'index'])->name('home');
 
-Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('/login', [FrontController::class, 'login'])->name('login');
-Route::get('/recover-your-password', [FrontController::class, 'recoverPassword'])->name('recoverPassword');
+Route::post('/login', [FrontController::class, 'loginProcess']);
+
 Route::get('/register', [FrontController::class, 'register'])->name('register');
+Route::post('/register', [FrontController::class, 'processRegister']);
+
+Route::get('/recover-your-password', [FrontController::class, 'recoverPassword'])->name('recoverPassword');
+
+Route::get('/logout',[FrontController::class, 'logout'])->name('logout');
