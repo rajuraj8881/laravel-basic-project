@@ -18,6 +18,11 @@
                   </ul>
               </div>
           @endif
+          @if(Session::has('message'))
+              <div class="alert alert-{{ session::get('type') }}">
+                  {{ session::get('message') }}
+              </div>
+          @endif
         <div class="input-group mb-3">
           <input type="text" name="fullName" value="{{ old('fullName') }}" class="form-control" placeholder="Full name">
           <div class="input-group-append">
@@ -35,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" value="{{ old('password') }}" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -43,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="conPassword" value="{{ old('conPassword') }}" class="form-control" placeholder="Retype password">
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
