@@ -14,7 +14,7 @@ use App\Http\Controllers\FrontEnd\FrontController;
 |
 */
 
-Route::get('/dashboard', [FrontController::class, 'index'])->name('home');
+Route::get('/', [FrontController::class, 'index'])->name('home');
 
 Route::get('/login', [FrontController::class, 'login'])->name('login');
 Route::post('/login', [FrontController::class, 'loginProcess']);
