@@ -25,3 +25,6 @@ Route::post('/register', [FrontController::class, 'processRegister']);
 Route::get('/recover-your-password', [FrontController::class, 'recoverPassword'])->name('recoverPassword');
 
 Route::get('/logout',[FrontController::class, 'logout'])->name('logout');
+Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
+
+Route::get('/single-post', [FrontController::class, 'single'])->name('single');
