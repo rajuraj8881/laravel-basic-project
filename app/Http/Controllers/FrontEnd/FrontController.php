@@ -76,4 +76,11 @@ class FrontController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function profile(){
+        return view('profile');
+    }
+    public function single(){
+        return view('single');
+    }
 }
