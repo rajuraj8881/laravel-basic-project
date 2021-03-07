@@ -49,27 +49,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('addpost') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Post Add</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="pages/layout/boxed.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Post Edit</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                        <a href="{{ route('allpost') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>All Posts</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Delete Post</p>
                         </a>
                     </li>
                 </ul>

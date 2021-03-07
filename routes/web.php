@@ -31,3 +31,5 @@ Route::get('/single-post', [FrontController::class, 'single'])->name('single');
 
 Route::get('/add-post', [FrontController::class, 'addPost'])->name('addpost');
 Route::post('/add-post', [FrontController::class, 'addpPostProcess']);
+
+Route::get('/all-post', [FrontController::class, 'allPost'])->name('allpost');
