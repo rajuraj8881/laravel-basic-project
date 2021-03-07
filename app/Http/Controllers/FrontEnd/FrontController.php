@@ -91,4 +91,8 @@ class FrontController extends Controller
     public function addPostProcess(){
 
     }
+
+    public function allpost(){
+        return view('allpost');
+    }
 }
