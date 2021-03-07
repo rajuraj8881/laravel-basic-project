@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEnd\FrontController;
-
+use App\Http\Controllers\FrontEnd\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,15 +21,11 @@ Route::post('/login', [FrontController::class, 'loginProcess']);
 
 Route::get('/register', [FrontController::class, 'register'])->name('register');
 Route::post('/register', [FrontController::class, 'processRegister']);
-
 Route::get('/recover-your-password', [FrontController::class, 'recoverPassword'])->name('recoverPassword');
-
 Route::get('/logout',[FrontController::class, 'logout'])->name('logout');
 Route::get('/profile', [FrontController::class, 'profile'])->name('profile');
 
-Route::get('/single-post', [FrontController::class, 'single'])->name('single');
+Route::get('/add-post', [PostController::class, 'PostAdd'])->name('addpost');
+Route::post('/add-post', [PostController::class, 'savePost'])->name('save.post');
 
-Route::get('/add-post', [FrontController::class, 'addPost'])->name('addpost');
-Route::post('/add-post', [FrontController::class, 'addpPostProcess']);
-
-Route::get('/all-post', [FrontController::class, 'allPost'])->name('allpost');
+Route::get('/all-post', [PostController::class, 'ShowAllPost'])->name('allpost');

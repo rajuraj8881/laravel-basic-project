@@ -18,7 +18,24 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- Main content -->
+
     <section class="content">
+    <form action="{{ route('save.post') }}" method="post" enctype="multipart/form-data">
+    @csrf
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if(session()->has('message'))
+            <div class="alert alert-{{ session('type') }}">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary">
@@ -30,18 +47,19 @@
                                 <i class="fas fa-minus"></i></button>
                         </div>
                     </div>
+
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputName">Title</label>
-                            <input type="text" id="inputName" class="form-control" placeholder="Title here..">
+                            <label for="PostTitle">Title</label>
+                            <input type="text" name="PostTitle" id="PostTitle" class="form-control" placeholder="Title here..">
                         </div>
                         <div class="form-group">
-                            <label for="inputDescription">Description</label>
-                            <textarea id="inputDescription" class="form-control" rows="4" placeholder="Write here..."></textarea>
+                            <label for="postDescription">Description</label>
+                            <textarea name="postDescription" id="postDescription" class="form-control" rows="4" placeholder="Write here..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="inputName">Photo</label><br>
-                            <input type="file" id="inputName">
+                            <label for="postPhoto">Photo</label><br>
+                            <input type="file" name="postPhoto" id="postPhoto">
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -55,5 +73,6 @@
                 <input type="submit" value="Published" class="btn btn-success float-right">
             </div>
         </div>
+    </form>
     </section>
 @stop

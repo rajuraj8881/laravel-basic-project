@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -80,19 +81,5 @@ class FrontController extends Controller
     public function profile(){
         return view('profile');
     }
-    public function single(){
-        return view('single');
-    }
 
-    public function addPost(){
-        return view('addpost');
-    }
-
-    public function addPostProcess(){
-
-    }
-
-    public function allpost(){
-        return view('allpost');
-    }
 }
