@@ -83,4 +83,12 @@ class FrontController extends Controller
     public function single(){
         return view('single');
     }
+
+    public function addPost(){
+        return view('addpost');
+    }
+
+    public function addPostProcess(){
+
+    }
 }
