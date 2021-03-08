@@ -51,11 +51,11 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="PostTitle">Title</label>
-                            <input type="text" name="PostTitle" id="PostTitle" class="form-control" placeholder="Title here..">
+                            <input type="text" name="PostTitle" id="PostTitle" class="form-control" placeholder="Title here.." value="{{ old('PostTitle') }}" >
                         </div>
                         <div class="form-group">
                             <label for="postDescription">Description</label>
-                            <textarea name="postDescription" id="postDescription" class="form-control" rows="4" placeholder="Write here..."></textarea>
+                            <textarea name="postDescription" id="postDescription" class="form-control" rows="4" placeholder="Write here...">{{ old('postDescription') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="postPhoto">Photo</label><br>

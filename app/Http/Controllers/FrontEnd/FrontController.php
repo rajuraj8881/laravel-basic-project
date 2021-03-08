@@ -46,9 +46,13 @@ class FrontController extends Controller
         }
     }
 
+
+
     public function login(){
         return view('login');
     }
+
+
 
     public function loginProcess( Request $request ){
         $this->validate($request,[
@@ -65,9 +69,14 @@ class FrontController extends Controller
         return redirect()->back();
     }
 
+
+
     public function recoverPassword(){
         return view('forgot-password');
     }
+
+
+
 
     public  function logout(){
         auth()->logout();
@@ -76,6 +85,8 @@ class FrontController extends Controller
 
         return redirect()->route('login');
     }
+
+
 
     public function profile(){
         return view('profile');

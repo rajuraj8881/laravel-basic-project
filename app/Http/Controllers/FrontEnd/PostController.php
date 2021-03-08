@@ -5,9 +5,7 @@ namespace App\Http\Controllers\FrontEnd;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -19,18 +17,16 @@ class PostController extends Controller
         $this->validate($request,[
             'PostTitle' => 'required | min:10 | max:60',
             'postDescription' => 'required | min:30',
-            'postPhoto' => 'required'
+            'postPhoto' => 'required | mimes:jpg,bmp,png'
         ]);
-        $photo = $request->file('postPhoto');
-        $file_name = uniqid('photo_'.true).Str::random(10).'.'.$photo->getClientOriginalExtension();
-        if ( $photo->isValid() ) {
-            $photo->storeAs('images', $file_name);
-        }
+
+        $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
+        $request->file('postPhoto')->move(public_path('uploads'),$NewImageName);
 
         $data = [
             'title'=>$request->input('PostTitle'),
             'description'=>$request->input('postDescription'),
-            'photo'=>$request->input('postPhoto')
+            'photo'=> $NewImageName
         ];
 
         try {
@@ -49,6 +45,7 @@ class PostController extends Controller
 
     public function ShowAllPost(){
         $posts = DB::table('posts')->get();
+
         return view('allPost', compact('posts'));
     }
 
@@ -67,6 +64,7 @@ class PostController extends Controller
 
        return back()->with('post_update', 'post updated successfully');
     }
+
     public function PostDelete($id){
         DB::table('posts')->where('id',$id)->delete();
         return back()->with('post_deleted', 'post deleted successfully');
