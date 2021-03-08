@@ -68,6 +68,7 @@ class PostController extends Controller
        return back()->with('post_update', 'post updated successfully');
     }
     public function PostDelete($id){
-
+        DB::table('posts')->where('id',$id)->delete();
+        return back()->with('post_deleted', 'post deleted successfully');
     }
 }
