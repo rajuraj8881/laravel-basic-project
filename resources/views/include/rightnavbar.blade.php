@@ -49,13 +49,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ route('addpost') }}" class="nav-link">
+                        <a href="{{ route('addPost') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Post Add</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('allpost') }}" class="nav-link">
+                        <a href="{{ route('allPost') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>All Posts</p>
                         </a>

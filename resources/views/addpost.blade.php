@@ -69,7 +69,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <a href="{{ route('addpost') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('addPost') }}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Published" class="btn btn-success float-right">
             </div>
         </div>
