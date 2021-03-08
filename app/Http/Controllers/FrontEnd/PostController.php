@@ -56,10 +56,20 @@ class PostController extends Controller
     }
 
     public function UpdatePost( Request $request){
+        $this->validate($request,[
+            'PostTitle' => 'required | min:10 | max:60',
+            'postDescription' => 'required | min:30',
+            'postPhoto' => 'required '
+        ]);
+
+        $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
+        $request->file('postPhoto')->move(public_path('uploads'),$NewImageName);
         $data = [
             'title'=>$request->input('PostTitle'),
-            'description'=>$request->input('postDescription')
+            'description'=>$request->input('postDescription'),
+            'photo'=>$NewImageName
         ];
+
          DB::table('posts')->where('id', $request->id)->update($data);
 
        return back()->with('post_update', 'post updated successfully');
@@ -68,5 +78,10 @@ class PostController extends Controller
     public function PostDelete($id){
         DB::table('posts')->where('id',$id)->delete();
         return back()->with('post_deleted', 'post deleted successfully');
+    }
+
+    public function singlePost($id){
+        $posts = DB::table('posts')->where('id', $id)->get();
+        return view('single', compact('posts'));
     }
 }

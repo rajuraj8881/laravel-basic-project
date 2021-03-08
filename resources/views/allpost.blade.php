@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="col-md-12 col-sm-6">
-                            <h3 class="my-3">{{ $post->title }}</h3>
+                            <h3 class="my-3"><a href="single-post/{{ $post->id }}">{{ $post->title }}</a></h3>
                             <p>{{ $post->description }}</p>
                         </div>
                         <div class="col-md-12 col-sm-6">

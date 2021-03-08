@@ -31,3 +31,4 @@ Route::get('/all-post', [PostController::class, 'ShowAllPost'])->name('allPost')
 Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('post.Edit');
 Route::post('/update-post', [PostController::class, 'UpdatePost'])->name('Update.post');
 Route::get('/delete-post/{id}', [PostController::class, 'PostDelete'])->name('deletePost');
+Route::get('/single-post/{id}', [PostController::class, 'singlePost'])->name('single');
