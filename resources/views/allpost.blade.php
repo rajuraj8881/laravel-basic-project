@@ -14,6 +14,10 @@
                         <li class="breadcrumb-item active">All Post</li>
                     </ol>
                 </div>
+                @if(Session::has('post_deleted'))
+                    {{ Session::get('post_deleted') }}
+
+                @endif
             </div>
         </div><!-- /.container-fluid -->
     </section>
