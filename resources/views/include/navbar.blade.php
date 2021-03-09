@@ -4,10 +4,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('home') }}" class="nav-link">Home</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
     </li>
 </ul>
 
@@ -118,13 +115,4 @@
             <a class="nav-link" href="{{ route('logout') }}">Logout</a>
         </li>
     @endauth
-
-    @guest()
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">Register</a>
-        </li>
-    @endguest
 </ul>

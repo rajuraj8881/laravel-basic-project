@@ -43,7 +43,7 @@ class PostController extends Controller
         }
     }
 
-    public function ShowAllPost(){
+    public function ShowUserPost(){
         $posts = DB::table('posts')->get();
 
         return view('allPost', compact('posts'));
@@ -83,5 +83,11 @@ class PostController extends Controller
     public function singlePost($id){
         $posts = DB::table('posts')->where('id', $id)->get();
         return view('single', compact('posts'));
+    }
+
+    public function ShowAllPost(){
+        $posts = DB::table('posts')->get();
+
+        return view('dashboard', compact('posts'));
     }
 }

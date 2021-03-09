@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('login');
     }
 
     public function register(){
@@ -61,7 +61,7 @@ class FrontController extends Controller
         ]);
         $credentials = $request->except('_token');
         if(auth()->attempt($credentials)){
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
 
         session()->flash('message', 'Invalid email or password');
@@ -69,14 +69,9 @@ class FrontController extends Controller
         return redirect()->back();
     }
 
-
-
     public function recoverPassword(){
         return view('forgot-password');
     }
-
-
-
 
     public  function logout(){
         auth()->logout();
