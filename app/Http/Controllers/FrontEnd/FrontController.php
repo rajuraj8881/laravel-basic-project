@@ -46,19 +46,16 @@ class FrontController extends Controller
         }
     }
 
-
-
     public function login(){
         return view('login');
     }
-
-
 
     public function loginProcess( Request $request ){
         $this->validate($request,[
             'email' => 'required | email',
             'password' => 'required | min:6 '
         ]);
+
         $credentials = $request->except('_token');
         if(auth()->attempt($credentials)){
             return redirect()->route('dashboard');
@@ -80,8 +77,6 @@ class FrontController extends Controller
 
         return redirect()->route('login');
     }
-
-
 
     public function profile(){
         return view('profile');
