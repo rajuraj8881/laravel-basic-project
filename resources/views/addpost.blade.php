@@ -47,7 +47,6 @@
                                 <i class="fas fa-minus"></i></button>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <div class="form-group">
                             <label for="PostTitle">Title</label>

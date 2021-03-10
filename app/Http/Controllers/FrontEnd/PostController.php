@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class PostController extends Controller
 {
-    public function PostAdd(){
+    public function PostAdd(Request $request){
+
         return view('addPost');
     }
 
@@ -23,7 +25,10 @@ class PostController extends Controller
         $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
         $request->file('postPhoto')->move(public_path('uploads'),$NewImageName);
 
+        $user = Auth::id();
+
         $data = [
+            'user_id'=>$user,
             'title'=>$request->input('PostTitle'),
             'description'=>$request->input('postDescription'),
             'photo'=> $NewImageName
@@ -44,12 +49,14 @@ class PostController extends Controller
     }
 
     public function ShowUserPost(){
-        $posts = DB::table('posts')->get();
+        $user = Auth::user();
+        $posts = Post::where('user_id',$user->id)->orderBy('id','desc')->get();
 
-        return view('allPost', compact('posts'));
+        return view('allPost', compact('posts', 'user'));
     }
 
     public function editPost($id){
+
         $post = DB::table('posts')->where('id',$id)->first();
 
         return view('edit-post', compact('post'));
