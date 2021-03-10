@@ -19,7 +19,7 @@ class PostController extends Controller
         $this->validate($request,[
             'PostTitle' => 'required | min:10 | max:60',
             'postDescription' => 'required | min:30',
-            'postPhoto' => 'required | mimes:jpg,bmp,png'
+            'postPhoto' => 'image | mimes:jpg,bmp,png'
         ]);
 
         $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
