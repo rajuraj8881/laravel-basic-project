@@ -49,13 +49,5 @@
         </section>
         <!-- /.content -->
     @endforeach
-    <span>
-        {{ $posts->links() }}
-        <style>
-            .w-5{
-                display: none;
-            }
-        </style>
-    </span>
 @stop
 

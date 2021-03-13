@@ -7,8 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -19,8 +18,8 @@ class PostController extends Controller
 
     public function savePost(Request $request){
         $this->validate($request,[
-            'PostTitle' => 'required | min:10 | max:60',
-            'postDescription' => 'required | min:30',
+            'PostTitle' => 'required',
+            'postDescription' => 'required',
             'postPhoto' => 'required | image | mimes:jpg,bmp,png'
         ]);
 
@@ -65,8 +64,8 @@ class PostController extends Controller
 
     public function UpdatePost( Request $request){
         $this->validate($request,[
-            'PostTitle' => 'required | min:10 | max:60',
-            'postDescription' => 'required | min:30',
+            'PostTitle' => ' min:10 | max:60',
+            'postDescription' => '  min:30',
             'postPhoto' => 'required | image'
         ]);
 
@@ -77,6 +76,7 @@ class PostController extends Controller
             'description'=>$request->input('postDescription'),
             'photo'=>$NewImageName
         ];
+
          DB::table('posts')->where('id', $request->id)->update($data);
 
        return back()->with('post_update', 'post updated successfully');
@@ -93,8 +93,7 @@ class PostController extends Controller
     }
 
     public function ShowAllPost(){
-        $posts = Post::paginate(10);
-
+        $posts = Post::paginate(2);
         return view('dashboard', compact('posts'));
     }
 
