@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -17,8 +18,8 @@ class PostController extends Controller
 
     public function savePost(Request $request){
         $this->validate($request,[
-            'PostTitle' => 'required | min:10 | max:60',
-            'postDescription' => 'required | min:30',
+            'PostTitle' => 'required',
+            'postDescription' => 'required',
             'postPhoto' => 'required | image | mimes:jpg,bmp,png'
         ]);
 
@@ -26,7 +27,6 @@ class PostController extends Controller
         $request->file('postPhoto')->move(public_path('uploads'),$NewImageName);
 
         $user = Auth::id();
-
         $data = [
             'user_id'=>$user,
             'title'=>$request->input('PostTitle'),
@@ -64,9 +64,9 @@ class PostController extends Controller
 
     public function UpdatePost( Request $request){
         $this->validate($request,[
-            'PostTitle' => 'required | min:10 | max:60',
-            'postDescription' => 'required | min:30',
-            'postPhoto' => 'required '
+            'PostTitle' => ' min:10 | max:60',
+            'postDescription' => '  min:30',
+            'postPhoto' => 'required | image'
         ]);
 
         $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
@@ -93,8 +93,7 @@ class PostController extends Controller
     }
 
     public function ShowAllPost(){
-        $posts = DB::table('posts')->get();
-
+        $posts = Post::paginate(2);
         return view('dashboard', compact('posts'));
     }
 
@@ -106,7 +105,6 @@ class PostController extends Controller
             ->orWhere('description', 'like', '%'.$search.'%');
         }
         $posts = $posts->get();
-
         return view('search', ['posts'=> $posts]);
     }
 }

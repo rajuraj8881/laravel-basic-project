@@ -35,7 +35,7 @@
 
                         <div class="col-md-12 col-sm-6">
                             <h3 class="my-3"><a href="single-post/{{ $post->id }}">{{ $post->title }}</a></h3>
-                            <p>{{ $post->description }}</p>
+                            <p>{{ $post->description }}{{ Illuminate\Support\Str::of($post->description)->length() }} {{ Illuminate\Support\Str::of($post->description)->length()/10 }}</p>
                         </div>
                         <div class="col-md-12 col-sm-6">
                             <img src="{{ asset('uploads/'.$post->photo) }}" class="post-image">
@@ -48,5 +48,13 @@
         </section>
         <!-- /.content -->
     @endforeach()
+    <span>
+        {{ $posts->links() }}
+        <style>
+            .w-5{
+                display: none;
+            }
+        </style>
+    </span>
 @stop
 
