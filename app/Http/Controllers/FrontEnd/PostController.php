@@ -19,7 +19,7 @@ class PostController extends Controller
         $this->validate($request,[
             'PostTitle' => 'required | min:10 | max:60',
             'postDescription' => 'required | min:30',
-            'postPhoto' => 'image | mimes:jpg,bmp,png'
+            'postPhoto' => 'required | image | mimes:jpg,bmp,png'
         ]);
 
         $NewImageName = time().'_'.$request->file('postPhoto')->getClientOriginalName();
@@ -96,5 +96,17 @@ class PostController extends Controller
         $posts = DB::table('posts')->get();
 
         return view('dashboard', compact('posts'));
+    }
+
+    public function ProductSearch( Request $request){
+        $search = isset($_GET['search']) ? $_GET['search'] : null;
+        $posts = DB::table('posts');
+        if ($search != null){
+            $posts->where('title', 'like', '%'.$search.'%')
+            ->orWhere('description', 'like', '%'.$search.'%');
+        }
+        $posts = $posts->get();
+
+        return view('search', ['posts'=> $posts]);
     }
 }
