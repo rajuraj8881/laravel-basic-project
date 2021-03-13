@@ -34,3 +34,4 @@ Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->middleware('
 Route::post('/update-post', [PostController::class, 'UpdatePost'])->middleware('adminAuth')->name('Update.post');
 Route::get('/delete-post/{id}', [PostController::class, 'PostDelete'])->middleware('adminAuth')->name('deletePost');
 Route::get('/single-post/{id}', [PostController::class, 'singlePost'])->middleware('adminAuth')->name('single');
+Route::get('/search', [PostController::class, 'ProductSearch'])->middleware('adminAuth')->name('search');
