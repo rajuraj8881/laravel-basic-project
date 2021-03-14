@@ -1,7 +1,11 @@
-.post-image{
-    width: 400px;
-    height: 300px;
+input {
+    width: 250px;
+    padding: 15px 12px;
+    font-size:22px;
 }
-.shadow-block{
-    box-shadow: 0 0 10px #ccc;
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

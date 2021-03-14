@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function PostAdd(Request $request){
+    public function postAdd(Request $request){
 
         return view('addPost');
     }
@@ -48,7 +48,7 @@ class PostController extends Controller
         }
     }
 
-    public function ShowUserPost(){
+    public function showUserPost(){
         $user = Auth::user();
         $posts = Post::where('user_id',$user->id)->orderBy('id','desc')->get();
 
@@ -62,7 +62,7 @@ class PostController extends Controller
         return view('edit-post', compact('post'));
     }
 
-    public function UpdatePost( Request $request){
+    public function updatePost( Request $request){
         $this->validate($request,[
             'PostTitle' => ' min:10 | max:60',
             'postDescription' => '  min:30',
@@ -82,7 +82,7 @@ class PostController extends Controller
        return back()->with('post_update', 'post updated successfully');
     }
 
-    public function PostDelete($id){
+    public function postDelete($id){
         DB::table('posts')->where('id',$id)->delete();
         return back()->with('post_deleted', 'post deleted successfully');
     }
@@ -92,12 +92,12 @@ class PostController extends Controller
         return view('single', compact('posts'));
     }
 
-    public function ShowAllPost(){
+    public function showAllPost(){
         $posts = Post::paginate(2);
         return view('dashboard', compact('posts'));
     }
 
-    public function ProductSearch( Request $request){
+    public function postSearch( Request $request){
         $search = isset($_GET['search']) ? $_GET['search'] : null;
         $posts = DB::table('posts');
         if ($search != null){
