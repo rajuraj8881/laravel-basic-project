@@ -33,10 +33,10 @@
                 </div>
             </div>
             <div class="input-group mb-3">
-                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" id="password-field" class="form-control" placeholder="Password">
                 <div class="input-group-append">
                     <div class="input-group-text">
-                        <span class="fas fa-lock"></span>
+                        <span><i id="pass-status" class="fa fa-eye" onClick="viewPassword()"></i></span>
                     </div>
                 </div>
             </div>

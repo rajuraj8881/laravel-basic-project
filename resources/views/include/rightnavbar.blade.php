@@ -55,30 +55,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('allPost') }}" class="nav-link">
+                        <a href="{{ route('myPost') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>All Posts</p>
+                            <p>My Post</p>
                         </a>
                     </li>
                 </ul>
-            </li>
-            <li class="nav-header">EXAMPLES</li>
-            <li class="nav-item">
-                <a href="pages/calendar.html" class="nav-link">
-                    <i class="nav-icon fas fa-calendar-alt"></i>
-                    <p>
-                        Calendar
-                        <span class="badge badge-info right">2</span>
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="pages/gallery.html" class="nav-link">
-                    <i class="nav-icon far fa-image"></i>
-                    <p>
-                        Gallery
-                    </p>
-                </a>
             </li>
         </ul>
     </nav>

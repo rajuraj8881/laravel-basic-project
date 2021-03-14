@@ -25,7 +25,7 @@
             <div class="card card-solid">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-12 col-sm-6 shadow-block">
+                        <div class="col-md-12 col-sm-6">
                             <div class="row">
                                 <div class="col-md-10 my-4">
                                     <img src="{{ asset('assets/dist/img/prod-1.jpg') }}" class="rounded-circle" alt="Cinque Terre" width="50" height="50" >
