@@ -7,7 +7,7 @@
   <div class="card">
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
-      <form action="{{ route('register') }}" method="post">
+      <form action="{{ route('register') }}" method="post" onsubmit="return myFunction()">
           @csrf
           @if ($errors->any())
               <div class="alert alert-danger">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" name="password_confirmation" class="form-control" placeholder="Retype password">
+          <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Retype password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

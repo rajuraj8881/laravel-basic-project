@@ -34,6 +34,18 @@
                 passStatus.className='fa fa-eye';
             }
         }
+
+        function myFunction() {
+            var password = document.getElementById("password").value;
+            var password_confirmation = document.getElementById("password_confirmation").value;
+            var ok = true;
+            if (password != password_confirmation) {
+                //alert("Passwords Do not match");
+                document.getElementById("password").style.borderColor = "#E34234";
+                document.getElementById("password_confirmation").style.borderColor = "#E34234";
+                return false;
+            }
+        }
     </script>
 </head>
 <body class="hold-transition login-page">
