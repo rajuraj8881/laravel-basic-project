@@ -24,7 +24,7 @@
                     </div>
                 @endif
                 @if(session()->has('message'))
-                    <div class="alert alert-{{ session('type') }}">
+                    <div class="alert alert-{{ session('myPost') }}">
                         {{ session('message') }}
                     </div>
                 @endif
@@ -74,7 +74,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ route('allPost') }}" class="btn btn-secondary">Cancel</a>
+                    <a href="{{ route('myPost') }}" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Update Post" class="btn btn-success float-right">
                 </div>
             </div>

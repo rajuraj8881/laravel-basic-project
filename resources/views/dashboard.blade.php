@@ -35,10 +35,10 @@
 
                         <div class="col-md-12 col-sm-6">
                             <h3 class="my-3"><a href="single-post/{{ $post->id }}">{{ $post->title }}</a></h3>
-                            <p>{{ $post->description }}{{ Illuminate\Support\Str::of($post->description)->length() }} {{ Illuminate\Support\Str::of($post->description)->length()/10 }}</p>
+                            <p>{{ $post->description }}</p>
                         </div>
                         <div class="col-md-12 col-sm-6">
-                            <img src="{{ asset('uploads/'.$post->photo) }}" class="post-image">
+                            <img src="{{ asset('uploads/'.$post->photo) }}" class="post-image" style="width: 400px; height: 200px">
                         </div>
                     </div>
                 </div>

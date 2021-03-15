@@ -51,7 +51,7 @@
                                 <p>{{ $post->description }}</p>
                             </div>
                             <div class="col-md-12 col-sm-6">
-                                <img src="{{ asset('uploads/'.$post->photo) }}" class="post-image">
+                                <img src="{{ asset('uploads/'.$post->photo) }}" class="post-image" style="width: 400px; height: 200px">
                             </div>
                         </div>
                     </div>
